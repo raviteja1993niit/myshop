@@ -24,21 +24,21 @@ $(document).ready(function(){
 <body>
 <div class="container">
 <c:url var="url" value="/cart/createorder"></c:url>
-<form:form modelAttribute="shippingaddress" action="${url }" id="form">
+<form:form modelAttribute="shippingaddress" action="${url }" id="form"> 
 <p align="center"><b>SHIPPING ADDRESS</b>
-</p>
 <form:hidden path="shippingAddressId"/>
-<form:label path="apartmentnumber">ENTER APARTMENT NUMBER</form:label>
+<form:label path="apartmentnumber" align="left">ENTER APARTMENT NUMBER</form:label>
 <form:input path="apartmentnumber" id="apartmentnumber"/>
-<form:label path="streetname">ENTER STREETNAME</form:label>
+<form:label path="streetname" align="left">ENTER STREETNAME</form:label>
 <form:input path="streetname" id="streetname"/>
-<form:label path="state">ENTER STATE</form:label>
+<form:label path="state" align="left">ENTER STATE</form:label>
 <form:input path="state" id="state"/>
-<form:label path="country">ENTER COUNTRY</form:label>
+<form:label path="country" align="left">ENTER COUNTRY</form:label>
 <form:input path="country" id="country"/>
-<form:label path="zipcode">ENTER ZIPCODE</form:label>
+<form:label path="zipcode" align="left">ENTER ZIPCODE</form:label>
 <form:input path="zipcode" id="zipcode"/>
 <input type="submit" value="NEXT">
+</p>
 </form:form>
 </div>
 </body>

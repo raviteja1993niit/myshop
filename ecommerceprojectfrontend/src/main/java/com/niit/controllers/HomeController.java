@@ -8,6 +8,7 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +26,7 @@ public class HomeController
 	public HomeController() {
 		System.out.println("Home Controller Bean has been created");
 	}
+	
 	@RequestMapping(value="/home")
 	public String getHomePage(Model m,@AuthenticationPrincipal Principal principal,HttpSession session)
 	{
@@ -36,6 +38,21 @@ public class HomeController
 		}
 		return "home";
 	}
+	
+	
+
+	@RequestMapping(value="/")
+	public String HomePage(Model m,@AuthenticationPrincipal Principal principal,HttpSession session)
+	{
+		if(principal!=null)
+		{
+			String email=principal.getName();
+			List<CartItem> cartItems=cartItemService.getCart(email);
+			session.setAttribute("cartSize", cartItems.size());
+		}
+		return "home";
+	}
+	
 	@RequestMapping(value="/login")
 	public String loginPage(Model m)
 	{

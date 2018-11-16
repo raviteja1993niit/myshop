@@ -22,6 +22,18 @@ $(document).ready(function()
 		}
 		)
 </script>
+<style type="text/css">
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   height:4%;
+   background-color: #333333;
+   color: white;
+   text-align: center;
+}
+</style>
 </head>
 <body ><%-- background="<c:url value='/resources/images/1.jpg'></c:url>" --%>
 <div class="container">
@@ -34,7 +46,7 @@ $(document).ready(function()
 
 <tbody>
 <c:forEach items="${product }" var="p">
-<tr><td> <img src="<c:url value='/resources/images/${p.id}.png'></c:url>" height="150px" width="250px"></td><td><font color="black"><c:out value="${p.productname}"></c:out></font></td><%-- <td><font color="white"><c:out value="${p.productdesc}"></c:out></font></td><td><font color="white"><c:out value="${p.quantity}"></c:out></font></td> --%><td><font color="black"><c:out value="${p.price}"></c:out></font></td>
+<tr><td> <img src="<c:url value='/resources/images/${p.id}.jpg'></c:url>" height="150px" width="250px"></td><td><font color="black"><c:out value="${p.productname}"></c:out></font></td><%-- <td><font color="white"><c:out value="${p.productdesc}"></c:out></font></td><td><font color="white"><c:out value="${p.quantity}"></c:out></font></td> --%><td><font color="black"><c:out value="${p.price}"></c:out></font></td>
 <td><font color="black"><c:out value="${p.category.categoryname}"></c:out></td>
 <td>
 <a href="<c:url value='/all/getproducts?id=${p.id}'></c:url>"><span class="glyphicon glyphicon-info-sign"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -49,5 +61,8 @@ $(document).ready(function()
 </table>
 </font>
 </div>
+<div class="footer">
+         © Copyright 2018, All Rights Reserved <b>NIIT SHOPPING CLAVE</b>
+      </div>
 </body>
 </html>

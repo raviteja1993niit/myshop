@@ -34,9 +34,9 @@ public class H2Configuration {
 		System.out.println("Entering DataSource Bean creation method ");
 	    BasicDataSource dataSource = new BasicDataSource();
 	    dataSource.setDriverClassName("org.h2.Driver");
-	    dataSource.setUrl("jdbc:h2:tcp://localhost/~/test");
-	    dataSource.setUsername("sa");
-	    dataSource.setPassword("sa");
+	    dataSource.setUrl("jdbc:h2:tcp://localhost/~/mahadev");
+	    dataSource.setUsername("mahadev");
+	    dataSource.setPassword("mahadev");
 	    System.out.println("DataSource bean " +dataSource);
 	    return dataSource;
 	}

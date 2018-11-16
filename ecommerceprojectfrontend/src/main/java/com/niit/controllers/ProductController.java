@@ -15,6 +15,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -106,20 +107,19 @@ public String addProduct(@Valid @ModelAttribute Product product, BindingResult r
 ps.addProducts(product);
 MultipartFile img=product.getImage();
 System.out.println(request.getServletContext().getRealPath("/"));
-Path path=Paths.get(request.getServletContext().getRealPath("/")+"/WEB-INF/resources/images/"+product.getId()+".png");
-/*Path path=Paths.get("D:\\RAVITEJA\\S191174100164\\workspace\\ecommerceprojectfrontend\\src\\main\\webapp\\WEB-INF\\resources\\images\\"+product.getId()+".png");*/
-File file = new File(path.toString());
-try
-{
-	img.transferTo(file);
-}
-catch(IllegalStateException e)
-{
-	e.printStackTrace();
-}
-catch(IOException e1)
-{
-	e1.printStackTrace();
+//Defining a path
+Path path=Paths.get(request.getServletContext().getRealPath("/")+"/WEB-INF/resources/images/"+product.getId()+".jpg");
+//transfer the image to the file
+if(!img.isEmpty()&&img!=null){
+	try {
+		img.transferTo(new File(path.toString()));
+	} catch (IllegalStateException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
 }
 return "redirect:/all/getallproducts/";
 }
@@ -144,20 +144,19 @@ public String updateProduct(@Valid @ModelAttribute Product product, BindingResul
 ps.updateProducts(product);
 MultipartFile img=product.getImage();
 System.out.println(request.getServletContext().getRealPath("/"));
-Path path=Paths.get(request.getServletContext().getRealPath("/")+"/WEB-INF/resources/images/"+product.getId()+".png");
-/*Path path=Paths.get("D:\\RAVITEJA\\S191174100164\\workspace\\ecommerceprojectfrontend\\src\\main\\webapp\\WEB-INF\\resources\\images\\"+product.getId()+".png");*/
-File file = new File(path.toString());
-try
-{
-	img.transferTo(file);
-}
-catch(IllegalStateException e)
-{
-	e.printStackTrace();
-}
-catch(IOException e1)
-{
-	e1.printStackTrace();
+//Defining a path
+Path path=Paths.get(request.getServletContext().getRealPath("/")+"/WEB-INF/resources/images/"+product.getId()+".jpg");
+//transfer the image to the file
+if(!img.isEmpty()&&img!=null){
+	try {
+		img.transferTo(new File(path.toString()));
+	} catch (IllegalStateException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
 }
 return "redirect:/all/getallproducts/";
 }

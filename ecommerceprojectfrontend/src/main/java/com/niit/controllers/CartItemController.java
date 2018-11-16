@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -52,7 +53,7 @@ private CustomerService customerService;
 				int qty=cartItem.getQuantity();
 				qty=qty+ requestedQuantity;
 				cartItem.setQuantity(qty);	
-				cartItem.setTotalprice(requestedQuantity*product.getPrice());
+				cartItem.setTotalprice(qty*product.getPrice());
 				cartItemService.addToCart(cartItem);
 				return "redirect:/cart/getcart";
 			}
@@ -107,11 +108,20 @@ private CustomerService customerService;
 	{
 		String email=principal.getName();
 		User user=customerService.getUser(email);
-		List<CartItem> cartItems=cartItemService.getCart(email);
 		Customer customer=user.getCustomer();
 		customer.setShippingaddress(shippingaddress);
-		user.setCustomer(customer);
 		customer.setUser(user);
+		user.setCustomer(customer);
+List<CartItem> cartItems=cartItemService.getCart(email);
+    	
+    	for(CartItem cartItem:cartItems){
+    		Product product=cartItem.getProduct();
+    		if((product.getQuantity()-cartItem.getQuantity())<0){
+    			cartItemService.removeCartItem(cartItem.getCartId());
+    			m.addAttribute("productNA",product);
+    			return "productnotavailable";
+    		}
+    	}
 		double grandTotal=0.0;
 		for(CartItem cartItem:cartItems)
 		{
@@ -133,9 +143,9 @@ private CustomerService customerService;
 			cartItemService.removeCartItem(cartItem.getCartId());
 		}
 		
-		session.setAttribute("cartSize", 0);
-		m.addAttribute("cartItems", cartItems);
 		m.addAttribute("customerOrder", customerOrder);
+		m.addAttribute("cartItems", cartItems);
+		session.setAttribute("cartSize", 0);
 		return "orderDetails";
 	}
 }

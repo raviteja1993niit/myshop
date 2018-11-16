@@ -28,6 +28,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Insert title here</title>
+<style type="text/css">
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: black;
+   color: white;
+   text-align: center;
+}
+</style>
 </head>
 <body background="<c:url value='/resources/images/gray_black.jpg'></c:url>">
 <div class="container-container">
@@ -47,7 +58,8 @@
 <li><a href="<c:url value='/home'></c:url>"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</a></li>
 <li><a href="#">AboutUs</a></li>
 <security:authorize access="hasRole('ROLE_ADMIN')">
-<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add<span class="caret"></span></a>
+
+<li class="dropdown" ><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add<span class="caret"></span></a>
 <ul class="dropdown-menu">
 <li><a href="<c:url value='/admin/getproductform'></c:url>"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add Product</a></li>
 <li><a href="<c:url value='/admin/getcategoryform'></c:url>"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add Category</a></li>
@@ -85,11 +97,9 @@
 </ul>
 </div>
 </nav>
-
 </div>
+<div class="footer">
+         © Copyright 2018, All Rights Reserved <b>NIIT Ecommerce	</b>
+      </div>
 </body>
-
-
-
-
 </html>

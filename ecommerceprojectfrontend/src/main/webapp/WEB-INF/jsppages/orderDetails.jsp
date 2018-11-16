@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@include file="header.jsp" %>
+    <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ include file="header.jsp" %>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,9 +13,9 @@
 <body>
 <div class="container-wrapper">
 <div class="container">
-<div class="container">
+<div class="page-header">
 <div class="row">
-<div class="well cols-xs-10 col-sm-10 col-md-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-1">
+<div class="well cols-xs-10 col-sm-10 col-md-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-3">
 <div>
 <h1 align="center">INVOICE</h1>
 </div>
@@ -61,9 +64,9 @@ ${customerOrder.user.customer.billingaddress.zipcode}
 </tr>
 </thead>
 <tbody>
-<c:forEach var="cartItem" items="${cartItems}">
-<tr>
-<c:url value="/resources/images/$(cartItem.product.id).png" var="imgUrl"></c:url>
+ <c:forEach var="cartItem" items="${cartItems}">
+ <tr>
+ <c:url value="/resources/images/${cartItem.product.id}.jpg" var="imgUrl"></c:url>
 <td><img src="${imgUrl}" height="50px" width="50px"/></td>
 <td class="col-md-9"><em>${cartItem.product.productname}</em></td>
 <td class="col-md-1" style="text-align:center">${cartItem.quantity}</td>

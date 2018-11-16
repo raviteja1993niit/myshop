@@ -6,6 +6,49 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<style>
+  .slide {
+      animation-name: slide;
+      -webkit-animation-name: slide;
+      animation-duration: 1s;
+      -webkit-animation-duration: 1s;
+      visibility: visible;
+  }
+  @keyframes slide {
+    0% {
+      opacity: 0;
+      transform: translateY(70%);
+    } 
+    100% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+  @-webkit-keyframes slide {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateY(70%);
+    } 
+    100% {
+      opacity: 1;
+      -webkit-transform: translateY(0%);
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .col-sm-4 {
+      text-align: center;
+      margin: 25px 0;
+    }
+    .btn-lg {
+        width: 100%;
+        margin-bottom: 35px;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .logo {
+        font-size: 150px;
+    }
+    </style>
 </head>
 <body>
 <div class="container">
@@ -16,43 +59,33 @@
                 <li data-target="#myCarousel" data-slide-to="1"></li>
                 <li data-target="#myCarousel" data-slide-to="2"></li>
                 <li data-target="#myCarousel" data-slide-to="3"></li>
+                <li data-target="#myCarousel" data-slide-to="4"></li>
+                <li data-target="#myCarousel" data-slide-to="5"></li>
             </ol>
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
-                    <img  src="<c:url value='/resources/images/benz.jpg'></c:url>" alt="first slide" height="600" width="800%">
-                    <div class="container">
-                        <div class="carousel-caption">
-                            <h1>WELCOME TO THE CAR STORE</h1>
-                            <p>Here You Can Browse And Buy Cars.Order Now For Your Amazing New Arrivals</p>
-                        </div>
-                    </div>
+                    <img  src="<c:url value='/resources/images/a.jpg'></c:url>" alt="first slide" style="width:1366px;height:510px">
                 </div>
                 <div class="item">
-                    <img class="img img-circle" src="<c:url value='/resources/images/audi_rs7_black.jpg'></c:url>" alt="Second slide" height="100%" width="100%">
-                    <div class="container">
-                        <div class="carousel-caption">
-                            <h1>The Car Store.</h1>
-                            <p>online shopping can make your life more easier</p>
-                        </div>
-                    </div>
+                    <img class="img img-circle" src="<c:url value='/resources/images/d.jpg'></c:url>" alt="Second slide" style="width:1366px;height:510px">
                 </div>
                 <div class="item">
-                    <img class="img-bordered" src="<c:url value='/resources/images/honda.jpg'></c:url>" alt="Third slide" height="100%" width="100%">
-                    <div class="container">
-                        <div class="carousel-caption">
-                            <h1>The Car You Love</h1>
-                            <p>live Freely,Work Happily And Drive Safely!!</p>
-                        </div>
-                    </div>
+                    <img class="img-bordered" src="<c:url value='/resources/images/c.jpg'></c:url>" alt="Third slide" style="width:1366px;height:510px">
+                </div>
+                <div class="item">
+                    <img class="img-bordered" src="<c:url value='/resources/images/b.jpg'></c:url>" alt="Third slide" style="width:1366px;height:510px">
+                </div>
+                <div class="item">
+                    <img class="img-bordered" src="<c:url value='/resources/images/e.jpg'></c:url>" alt="Third slide" style="width:1366px;height:510px">
                 </div>
                  <div class="item">
-                    <img class="img-thumbnail" src="<c:url value='/resources/images/audi1.jpg'></c:url>" alt="forth slide" height="100%" width="100%">
-                    <div class="container">
-                        <div class="carousel-caption">
-                            <h1>Any car can be a "cool" car</h1>
-                            <p>your life,your car...you own it!!</p>
-                        </div>
-                    </div>
+                    <img class="img-thumbnail" src="<c:url value='/resources/images/f.jpg'></c:url>" alt="forth slide" style="width:1366px;height:510px">
+                </div>
+                <div class="item">
+                    <img class="img-thumbnail" src="<c:url value='/resources/images/g.jpg'></c:url>" alt="forth slide" style="width:1366px;height:510px">
+                </div>
+                <div class="item">
+                    <img class="img-thumbnail" src="<c:url value='/resources/images/i.jpg'></c:url>" alt="forth slide" style="width:1366px;height:510px">
                 </div>
             </div>
             <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -63,9 +96,32 @@
                 <span class="glyphicon glyphicon-chevron-right" ></span>
                 <span class="sr-only">Next</span>
             </a>
-        </div><!-- /.carousel -->
+        </div><!-- /.carousel --><br><br>
+<div class="row slideanim">     
+        <img class="img-thumbnail" src="<c:url value='/resources/images/5.jpg'></c:url>" alt="forth slide" style="width:1366px;height:510px"><br>
+        </div>
+        <br>
+        <div class="row slideanim">
+		<img class="img-thumbnail" src="<c:url value='/resources/images/6.jpg'></c:url>" alt="forth slide" style="width:1366px;height:510px"><br>
+		</div>
+		<br>
+		<div class="row slideanim">
+		<img class="img-thumbnail" src="<c:url value='/resources/images/7.jpg'></c:url>" alt="forth slide" style="width:1366px;height:510px">
+</div>
+<script>
+$(document).ready(function(){
+  $(window).scroll(function() {
+    $(".slideanim").each(function(){
+      var pos = $(this).offset().top;
 
-
+      var winTop = $(window).scrollTop();
+        if (pos < winTop + 200) {
+          $(this).addClass("slide");
+        }
+    });
+  });
+})
+</script>
 
 
 </div>

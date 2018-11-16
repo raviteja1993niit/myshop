@@ -4,7 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -13,19 +12,18 @@ import javax.persistence.Table;
 public class CartItem {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int cartId;
+	private int cartItemId;
 	@ManyToOne
-    @JoinColumn(name="product_id")
 	private Product product;
 	@ManyToOne
 	private User user;
 	private int quantity;
 	private double totalprice;
 	public int getCartId() {
-		return cartId;
+		return cartItemId;
 	}
-	public void setCartId(int cartId) {
-		this.cartId = cartId;
+	public void setCartId(int cartItemId) {
+		this.cartItemId = cartItemId;
 	}
 	public Product getProduct() {
 		return product;
