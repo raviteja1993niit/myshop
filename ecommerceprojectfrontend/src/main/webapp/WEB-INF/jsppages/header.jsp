@@ -81,10 +81,12 @@
 				</c:forEach>
 				</ul>
 </li>
+<li><a href="<c:url value='/video'></c:url>"><span class="glyphicon glyphicon-film"></span>&nbsp;Home Screen</a></li>
 <security:authorize access="hasRole('ROLE_USER')">
 <li><a href="<c:url value='/cart/getcart'></c:url>"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;(${cartSize})</a></li>
 </security:authorize>
 </ul>
+
 <ul class="nav navbar-nav navbar-right">
 <c:if test="${pageContext.request.userPrincipal.name == null}">
 <li><a href="<c:url value='/all/getregistrationform'></c:url>"><span class="glyphicon glyphicon-registration-mark"></span>&nbsp;Sign Up</a></li>

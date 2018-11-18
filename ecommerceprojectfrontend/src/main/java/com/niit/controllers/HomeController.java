@@ -26,7 +26,11 @@ public class HomeController
 	public HomeController() {
 		System.out.println("Home Controller Bean has been created");
 	}
-	
+	@RequestMapping(value="/video")
+	public String getVideoPage()
+	{
+		return "videopage";
+	}
 	@RequestMapping(value="/home")
 	public String getHomePage(Model m,@AuthenticationPrincipal Principal principal,HttpSession session)
 	{
