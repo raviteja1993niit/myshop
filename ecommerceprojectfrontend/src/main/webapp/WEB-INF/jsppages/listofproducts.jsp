@@ -14,7 +14,7 @@ $(document).ready(function()
 		{
 			var searchCondition = '${searchCondition}'
 			$('.table').DataTable({
-				"lengthMenu":[[5,10,-1],[5,10,"All"]],
+				"lengthMenu":[[2,5,-1],[2,5,"All"]],
 				"oSearch":{
 				"sSearch":searchCondition
 				}
@@ -61,8 +61,6 @@ $(document).ready(function()
 </table>
 </font>
 </div>
-<div class="footer">
-         © Copyright 2018, All Rights Reserved <b>NIIT SHOPPING CLAVE</b>
-      </div>
+
 </body>
 </html>

@@ -101,7 +101,7 @@
 </nav>
 </div>
 <div class="footer">
-         © Copyright 2018, All Rights Reserved <b>NIIT Ecommerce	</b>
+         © Copyright 2018, All Rights Reserved By <b>NIIT Ecommerce	</b>
       </div>
 </body>
 </html>

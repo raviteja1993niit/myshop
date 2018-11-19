@@ -17,14 +17,14 @@
   position: absolute;
   border: 1px solid #d4d4d4;
   /*set the size of the lens:*/
-  width: 240px;
-  height: 240px;
+  width: 290px;
+  height: 250px;
 }
 
 .img-zoom-result {
   border: 1px solid #d4d4d4;
   /*set the size of the result div:*/
-  width: 400px;
+  width: 600px;
   height: 300px;
 }
 </style>
@@ -95,8 +95,6 @@ function imageZoom(imgID, resultID) {
 <img id="myimage" src="<c:url value='/resources/images/${productAttr.id}.jpg'></c:url>" height="540px" width="600px"></td>
 <td><br><br><br><font color="white"><b><h3>Maginifying Glass</h3></b></font><div id="myresult" class="img-zoom-result"></div></td>
 </div>
-</tr>
-</table>
 <br><br><br><br><br><br>
 <table align="center" border="1" class="table table-sm">
 <tbody>

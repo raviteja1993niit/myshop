@@ -98,15 +98,15 @@
             </a>
         </div><!-- /.carousel --><br><br>
 <div class="row slideanim">     
-        <img class="img-thumbnail" src="<c:url value='/resources/images/5.jpg'></c:url>" alt="forth slide" style="width:1366px;height:510px"><br>
+        <img class="img-thumbnail" src="<c:url value='/resources/images/a1.PNG'></c:url>" alt="forth slide" style="width:1366px;height:510px"><br>
         </div>
         <br>
         <div class="row slideanim">
-		<img class="img-thumbnail" src="<c:url value='/resources/images/6.jpg'></c:url>" alt="forth slide" style="width:1366px;height:510px"><br>
+		<img class="img-thumbnail" src="<c:url value='/resources/images/b1.PNG'></c:url>" alt="forth slide" style="width:1366px;height:510px"><br>
 		</div>
 		<br>
 		<div class="row slideanim">
-		<img class="img-thumbnail" src="<c:url value='/resources/images/7.jpg'></c:url>" alt="forth slide" style="width:1366px;height:510px">
+		<img class="img-thumbnail" src="<c:url value='/resources/images/c1.PNG'></c:url>" alt="forth slide" style="width:1366px;height:510px">
 </div>
 <script>
 $(document).ready(function(){

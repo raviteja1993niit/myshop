@@ -61,7 +61,7 @@ body {
 }
 </style>
 </head>
-<body onload="myFunction()">
+<body onload="myFunction()" onclick="myFunction()">
 
 <video controls autoplay  loop id="myVideo">
   <source src="<c:url value='/resources/images/video.mkv'></c:url>" type="video/mp4">

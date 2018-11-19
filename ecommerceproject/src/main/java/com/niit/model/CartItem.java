@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -12,7 +13,7 @@ import javax.persistence.Table;
 public class CartItem {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int cartItemId;
+	private int cartId;
 	@ManyToOne
 	private Product product;
 	@ManyToOne
@@ -20,10 +21,10 @@ public class CartItem {
 	private int quantity;
 	private double totalprice;
 	public int getCartId() {
-		return cartItemId;
+		return cartId;
 	}
-	public void setCartId(int cartItemId) {
-		this.cartItemId = cartItemId;
+	public void setCartId(int cartId) {
+		this.cartId = cartId;
 	}
 	public Product getProduct() {
 		return product;

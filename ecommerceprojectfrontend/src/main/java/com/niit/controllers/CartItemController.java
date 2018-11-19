@@ -10,7 +10,6 @@ import javax.servlet.http.HttpSession;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -52,8 +51,8 @@ private CustomerService customerService;
 			{
 				int qty=cartItem.getQuantity();
 				qty=qty+ requestedQuantity;
-				cartItem.setQuantity(qty);	
-				cartItem.setTotalprice(qty*product.getPrice());
+				cartItem.setQuantity(qty);			
+				cartItem.setTotalprice(requestedQuantity*product.getPrice());
 				cartItemService.addToCart(cartItem);
 				return "redirect:/cart/getcart";
 			}
@@ -108,20 +107,11 @@ private CustomerService customerService;
 	{
 		String email=principal.getName();
 		User user=customerService.getUser(email);
+		List<CartItem> cartItems=cartItemService.getCart(email);
 		Customer customer=user.getCustomer();
 		customer.setShippingaddress(shippingaddress);
-		customer.setUser(user);
 		user.setCustomer(customer);
-List<CartItem> cartItems=cartItemService.getCart(email);
-    	
-    	for(CartItem cartItem:cartItems){
-    		Product product=cartItem.getProduct();
-    		if((product.getQuantity()-cartItem.getQuantity())<0){
-    			cartItemService.removeCartItem(cartItem.getCartId());
-    			m.addAttribute("productNA",product);
-    			return "productnotavailable";
-    		}
-    	}
+		customer.setUser(user);
 		double grandTotal=0.0;
 		for(CartItem cartItem:cartItems)
 		{
@@ -147,5 +137,10 @@ List<CartItem> cartItems=cartItemService.getCart(email);
 		m.addAttribute("cartItems", cartItems);
 		session.setAttribute("cartSize", 0);
 		return "orderDetails";
+	}
+	@RequestMapping(value="/contact")
+	public String getVideoPage()
+	{
+		return "thanks";
 	}
 }

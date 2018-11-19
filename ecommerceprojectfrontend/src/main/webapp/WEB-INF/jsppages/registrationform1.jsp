@@ -129,7 +129,7 @@ Check this if shipping address is same as billing address
 	<form:label path="shippingaddress.zipcode">Enter zip code</form:label>
 	<form:input path="shippingaddress.zipcode" id="shippingaddress.zipcode"/>
 	<br>
-	<input type="submit" value="Register" style="background-color:#333333;">
+	<input type="submit" value="Register">
 	
 	</form:form>
 	</div>
